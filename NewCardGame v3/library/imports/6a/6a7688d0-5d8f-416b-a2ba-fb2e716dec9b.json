@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "8_of_hearts",
+    "texture": "edb64b08-fba8-4ccc-be3f-c4154607699d",
+    "atlas": "",
+    "rect": [
+      13,
+      2,
+      78,
+      107
+    ],
+    "offset": [
+      5,
+      3.5
+    ],
+    "originalSize": [
+      94,
+      118
+    ]
+  }
+}

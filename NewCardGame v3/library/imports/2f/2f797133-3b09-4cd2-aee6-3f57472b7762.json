@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "jack_of_spades",
+    "texture": "b0503285-8d80-4dff-9204-6757aba50698",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      500,
+      726
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      500,
+      726
+    ]
+  }
+}

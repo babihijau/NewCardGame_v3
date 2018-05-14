@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ace_of_clubs",
+    "texture": "14187f91-accd-46df-aea4-9ce63e53bdb9",
+    "atlas": "",
+    "rect": [
+      13,
+      2,
+      78,
+      107
+    ],
+    "offset": [
+      5,
+      3.5
+    ],
+    "originalSize": [
+      94,
+      118
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "33a07e9c-d474-4c01-947c-c0a18736a573",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "king_of_diamonds": {
+      "ver": "1.0.3",
+      "uuid": "e4026fee-96eb-4c63-9faa-3856a1540cdb",
+      "rawTextureUuid": "33a07e9c-d474-4c01-947c-c0a18736a573",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 500,
+      "height": 726,
+      "rawWidth": 500,
+      "rawHeight": 726,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

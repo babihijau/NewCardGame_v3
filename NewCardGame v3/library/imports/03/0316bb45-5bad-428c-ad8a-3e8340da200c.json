@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "7_of_spades",
+    "texture": "d0333d0f-cab7-4af4-a85d-0b562381c484",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      500,
+      726
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      500,
+      726
+    ]
+  }
+}

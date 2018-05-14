@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "10_of_diamonds",
+    "texture": "416394b5-6fe3-4b7c-8467-be0f45fca4d4",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      500,
+      726
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      500,
+      726
+    ]
+  }
+}

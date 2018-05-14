@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ace_of_spades",
+    "texture": "da84c35f-bd75-49e3-aedb-fdd9ba006829",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      500,
+      726
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      500,
+      726
+    ]
+  }
+}

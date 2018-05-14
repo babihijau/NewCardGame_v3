@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "5356a628-8328-40e3-9708-dc86d8203397",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "ace_of_clubs": {
+      "ver": "1.0.3",
+      "uuid": "6d6abcf8-f485-4542-8dda-f8ac7bc2f101",
+      "rawTextureUuid": "5356a628-8328-40e3-9708-dc86d8203397",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 500,
+      "height": 726,
+      "rawWidth": 500,
+      "rawHeight": 726,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

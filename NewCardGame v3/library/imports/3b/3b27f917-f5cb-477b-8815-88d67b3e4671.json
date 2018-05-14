@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tpokerrevealcomcard",
+    "texture": "f74e4121-0b2f-440d-b4b8-95e90c3780e9",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      83,
+      112
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      86,
+      112
+    ]
+  }
+}

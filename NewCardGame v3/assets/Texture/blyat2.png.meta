@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "83e0382f-8dd3-4ca5-9665-69336b1cbe18",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "blyat2": {
+      "ver": "1.0.3",
+      "uuid": "585c9198-5d98-4cb8-9e00-d43030257361",
+      "rawTextureUuid": "83e0382f-8dd3-4ca5-9665-69336b1cbe18",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 933,
+      "height": 619,
+      "rawWidth": 933,
+      "rawHeight": 619,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

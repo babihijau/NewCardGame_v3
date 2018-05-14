@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "blyat2",
+    "texture": "83e0382f-8dd3-4ca5-9665-69336b1cbe18",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      933,
+      619
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      933,
+      619
+    ]
+  }
+}
