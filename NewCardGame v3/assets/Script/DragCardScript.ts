@@ -106,8 +106,6 @@ export default class DragCard extends cc.Component {
             if (!this.propagate) {
                 event.stopPropagation();
             }
-
-
         }, this);
 
         // mouse event listener for mouse is moving

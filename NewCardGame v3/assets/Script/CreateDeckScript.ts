@@ -2,6 +2,7 @@ import DragCard from "./DragCardScript";
 import Discarded from "./DiscardedCardScript";
 import Hand from "./HandCardScript";
 import Deck from "./DeckCardScript";
+import Deal from "./DealScript";
 
 const {ccclass, property} = cc._decorator;
 
@@ -30,6 +31,10 @@ export default class CreateDeck extends cc.Component {
         Deck.deckCards = [];
         Discarded.discardedCards = [];
         Hand.handCards = [];
+       // tslint:disable-next-line:comment-format
+        cc.log(Deal.interactableButton);
+        Deal.interactableButton = true;
+        cc.log(Deal.interactableButton);
 
         var self: this = this;
 

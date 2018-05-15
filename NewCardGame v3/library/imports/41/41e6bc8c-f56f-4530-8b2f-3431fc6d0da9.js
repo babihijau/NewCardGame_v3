@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var DiscardedCardScript_1 = require("./DiscardedCardScript");
 var HandCardScript_1 = require("./HandCardScript");
 var DeckCardScript_1 = require("./DeckCardScript");
+var DealScript_1 = require("./DealScript");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var CreateDeck = /** @class */ (function (_super) {
     __extends(CreateDeck, _super);
@@ -36,6 +37,10 @@ var CreateDeck = /** @class */ (function (_super) {
         DeckCardScript_1.default.deckCards = [];
         DiscardedCardScript_1.default.discardedCards = [];
         HandCardScript_1.default.handCards = [];
+        // tslint:disable-next-line:comment-format
+        cc.log(DealScript_1.default.interactableButton);
+        DealScript_1.default.interactableButton = true;
+        cc.log(DealScript_1.default.interactableButton);
         var self = this;
         for (var i = 0; i < 52; i++) {
             var card = cc.instantiate(this.prefab);
