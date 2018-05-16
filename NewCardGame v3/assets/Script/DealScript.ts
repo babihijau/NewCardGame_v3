@@ -1,7 +1,7 @@
 import DragCard from "./DragCardScript";
-import Discarded from "./DiscardedCardScript";
 import Hand from "./HandCardScript";
 import Deck from "./DeckCardScript";
+import CreateDeck from "./CreateDeckScript";
 
 const { ccclass, property } = cc._decorator;
 
@@ -9,7 +9,9 @@ const { ccclass, property } = cc._decorator;
 export default class Deal extends cc.Component {
 
     @property(cc.Button)
-    button: cc.Button = null;
+    DealButton: cc.Button = null;
+    @property(cc.Button)
+    CreateButton: cc.Button = null;
     @property
     cardsToDeal: number = 0;
     @property
@@ -17,19 +19,18 @@ export default class Deal extends cc.Component {
     @property(cc.Node)
     handLayout: cc.Node = null;
 
-    spawnCount: number = 0;
+    public static spawnCount: number = 0;
 
-    // public static dealingArray: cc.Node[] = [];
     public static interactableButton: boolean = false;
 
     onLoad(): void {
-        this.spawnCount = 0;
+        Deal.spawnCount = 0;
     }
 
     onDealCard(): void {
         this.schedule(this.onDealCard, this.spawnInterval);
 
-        if (this.spawnCount >= this.cardsToDeal) {
+        if (Deal.spawnCount >= this.cardsToDeal) {
             this.clearRepeater();
             return;
         }
@@ -63,11 +64,17 @@ export default class Deal extends cc.Component {
         }
 
         Deck.deckCards.pop();
-        this.spawnCount++;
+        Deal.spawnCount++;
+        Deal.interactableButton = false;
+        if (Deal.spawnCount>0 && Deal.spawnCount<10) {
+            this.CreateButton.interactable = false;
+        } else {
+            this.CreateButton.interactable = true;
+        }
     }
 
     update(): void {
-        this.button.interactable = Deal.interactableButton;
+        this.DealButton.interactable = Deal.interactableButton;
     }
 
     clearRepeater(): void {

@@ -1,69 +1,54 @@
-2018-05-15T02:36:54.555Z - normal: Load ~/.CocosCreator/settings.json
-2018-05-15T02:36:54.562Z - normal: checking language setting...
-2018-05-15T02:36:54.564Z - normal: Language: en
-2018-05-15T02:37:02.699Z - success: protocol editor-framework registered
-2018-05-15T02:37:02.700Z - success: protocol app registered
-2018-05-15T02:37:02.700Z - success: protocol theme registered
-2018-05-15T02:37:02.700Z - success: protocol packages registered
-2018-05-15T02:37:02.701Z - success: protocol unpack registerred
-2018-05-15T02:37:02.701Z - success: protocol disable-commonjs registerred
-2018-05-15T02:37:03.898Z - normal: connected!
-2018-05-15T02:37:03.905Z - normal: Check project C:\Users\User\Documents\NewCardGame_v3\NewCardGame v3
-2018-05-15T02:37:03.912Z - normal: Initializing Cocos2d
-2018-05-15T02:37:07.339Z - normal: Initializing Asset Database
-2018-05-15T02:37:07.464Z - success: protocol uuid registerred
-2018-05-15T02:37:07.464Z - success: protocol db registerred
-2018-05-15T02:37:07.465Z - success: protocol thumbnail registerred
-2018-05-15T02:37:07.465Z - normal: Loading editor/builtin packages
-2018-05-15T02:37:07.511Z - success: anysdk loaded
-2018-05-15T02:37:07.734Z - success: assets loaded
-2018-05-15T02:37:07.737Z - success: builder loaded
-2018-05-15T02:37:07.741Z - success: cocos-analytics loaded
-2018-05-15T02:37:07.746Z - success: console loaded
-2018-05-15T02:37:07.797Z - success: fb-instant-games loaded
-2018-05-15T02:37:07.804Z - success: hierarchy loaded
-2018-05-15T02:37:07.809Z - success: inspector loaded
-2018-05-15T02:37:07.811Z - success: keystore loaded
-2018-05-15T02:37:07.815Z - success: node-library loaded
-2018-05-15T02:37:07.818Z - success: package-asset loaded
-2018-05-15T02:37:07.839Z - success: preferences loaded
-2018-05-15T02:37:07.841Z - success: project-exporter loaded
-2018-05-15T02:37:07.862Z - success: project-importer loaded
-2018-05-15T02:37:07.865Z - success: project-settings loaded
-2018-05-15T02:37:07.868Z - success: ui-kit loaded
-2018-05-15T02:37:07.873Z - success: ui-grid loaded
-2018-05-15T02:37:07.877Z - success: scene loaded
-2018-05-15T02:37:07.879Z - success: sprite-editor loaded
-2018-05-15T02:37:07.884Z - success: store loaded
-2018-05-15T02:37:07.890Z - success: timeline loaded
-2018-05-15T02:37:07.890Z - normal: Loading builtin packages
-2018-05-15T02:37:07.897Z - success: asset-db-debugger loaded
-2018-05-15T02:37:07.900Z - success: code-editor loaded
-2018-05-15T02:37:07.912Z - success: color-picker loaded
-2018-05-15T02:37:07.916Z - success: package-manager loaded
-2018-05-15T02:37:07.934Z - success: sdkbox loaded
-2018-05-15T02:37:07.937Z - success: tester loaded
-2018-05-15T02:37:07.939Z - success: ui-kit-preview-extra loaded
-2018-05-15T02:37:07.942Z - success: ui-kit-preview loaded
-2018-05-15T02:37:07.944Z - success: ui-tree loaded
-2018-05-15T02:37:10.367Z - normal: Initializing project C:\Users\User\Documents\NewCardGame_v3\NewCardGame v3
-2018-05-15T02:37:10.396Z - normal: Loading packages
-2018-05-15T02:37:10.419Z - normal: Watching packages
-2018-05-15T02:37:10.460Z - normal: Run Application
-2018-05-15T02:37:13.748Z - success: preview server running at http://localhost:7456
-2018-05-15T02:37:25.588Z - normal: 1.9.0
-2018-05-15T03:51:52.839Z - error: SyntaxError: Unexpected token (17:21) while parsing C:\Users\User\Documents\NewCardGame_v3\NewCardGame v3\temp\quick-scripts\assets\Script\DealScript.js while parsing file: C:\Users\User\Documents\NewCardGame_v3\NewCardGame v3\temp\quick-scripts\assets\Script\DealScript.js
-    at DestroyableTransform.end [as _flush] (C:\CocosCreator\resources\app.asar\node_modules\insert-module-globals\index.js:96:21)
-    at DestroyableTransform.prefinish (C:\CocosCreator\resources\app.asar\node_modules\readable-stream\lib\_stream_transform.js:138:10)
-    at emitNone (events.js:86:13)
-    at DestroyableTransform.emit (events.js:188:7)
-    at prefinish (C:\CocosCreator\resources\app.asar\node_modules\readable-stream\lib\_stream_writable.js:609:14)
-    at finishMaybe (C:\CocosCreator\resources\app.asar\node_modules\readable-stream\lib\_stream_writable.js:617:5)
-    at endWritable (C:\CocosCreator\resources\app.asar\node_modules\readable-stream\lib\_stream_writable.js:628:3)
-    at DestroyableTransform.Writable.end (C:\CocosCreator\resources\app.asar\node_modules\readable-stream\lib\_stream_writable.js:584:41)
-    at DestroyableTransform.onend (C:\CocosCreator\resources\app.asar\node_modules\readable-stream\lib\_stream_readable.js:577:10)
-    at Object.onceWrapper (events.js:293:19)
-    at process.on.t (C:\CocosCreator\resources\app.asar\editor\core\editor-init.js:1:1068)
-    at emitOne (events.js:101:20)
-    at process.emit (events.js:191:7)
-    at process._fatalException (bootstrap_node.js:308:26)
+2018-05-16T05:03:13.975Z - normal: Load ~/.CocosCreator/settings.json
+2018-05-16T05:03:13.984Z - normal: checking language setting...
+2018-05-16T05:03:13.984Z - normal: Language: en
+2018-05-16T05:03:19.893Z - success: protocol editor-framework registered
+2018-05-16T05:03:19.893Z - success: protocol app registered
+2018-05-16T05:03:19.894Z - success: protocol theme registered
+2018-05-16T05:03:19.894Z - success: protocol packages registered
+2018-05-16T05:03:19.894Z - success: protocol unpack registerred
+2018-05-16T05:03:19.894Z - success: protocol disable-commonjs registerred
+2018-05-16T05:03:22.891Z - normal: failed to connect login server due to request timeout
+2018-05-16T05:03:22.894Z - normal: Check project C:\Users\User\Documents\NewCardGame_v3\NewCardGame v3
+2018-05-16T05:03:22.900Z - normal: Initializing Cocos2d
+2018-05-16T05:03:25.322Z - normal: Initializing Asset Database
+2018-05-16T05:03:25.452Z - success: protocol uuid registerred
+2018-05-16T05:03:25.452Z - success: protocol db registerred
+2018-05-16T05:03:25.452Z - success: protocol thumbnail registerred
+2018-05-16T05:03:25.452Z - normal: Loading editor/builtin packages
+2018-05-16T05:03:25.507Z - success: anysdk loaded
+2018-05-16T05:03:25.750Z - success: assets loaded
+2018-05-16T05:03:25.753Z - success: builder loaded
+2018-05-16T05:03:25.756Z - success: cocos-analytics loaded
+2018-05-16T05:03:25.760Z - success: console loaded
+2018-05-16T05:03:25.806Z - success: fb-instant-games loaded
+2018-05-16T05:03:25.810Z - success: hierarchy loaded
+2018-05-16T05:03:25.814Z - success: inspector loaded
+2018-05-16T05:03:25.815Z - success: keystore loaded
+2018-05-16T05:03:25.818Z - success: node-library loaded
+2018-05-16T05:03:25.820Z - success: package-asset loaded
+2018-05-16T05:03:25.853Z - success: preferences loaded
+2018-05-16T05:03:25.856Z - success: project-exporter loaded
+2018-05-16T05:03:25.876Z - success: project-importer loaded
+2018-05-16T05:03:25.879Z - success: project-settings loaded
+2018-05-16T05:03:25.882Z - success: ui-kit loaded
+2018-05-16T05:03:25.909Z - success: ui-grid loaded
+2018-05-16T05:03:25.913Z - success: scene loaded
+2018-05-16T05:03:25.914Z - success: sprite-editor loaded
+2018-05-16T05:03:25.919Z - success: store loaded
+2018-05-16T05:03:25.924Z - success: timeline loaded
+2018-05-16T05:03:25.924Z - normal: Loading builtin packages
+2018-05-16T05:03:25.926Z - success: asset-db-debugger loaded
+2018-05-16T05:03:25.928Z - success: code-editor loaded
+2018-05-16T05:03:25.960Z - success: color-picker loaded
+2018-05-16T05:03:25.963Z - success: package-manager loaded
+2018-05-16T05:03:25.981Z - success: sdkbox loaded
+2018-05-16T05:03:25.984Z - success: tester loaded
+2018-05-16T05:03:25.987Z - success: ui-kit-preview-extra loaded
+2018-05-16T05:03:25.989Z - success: ui-kit-preview loaded
+2018-05-16T05:03:25.991Z - success: ui-tree loaded
+2018-05-16T05:03:28.060Z - normal: Initializing project C:\Users\User\Documents\NewCardGame_v3\NewCardGame v3
+2018-05-16T05:03:28.082Z - normal: Loading packages
+2018-05-16T05:03:28.090Z - normal: Watching packages
+2018-05-16T05:03:28.129Z - normal: Run Application
+2018-05-16T05:03:32.248Z - success: preview server running at http://localhost:7456
+2018-05-16T05:03:41.853Z - normal: 1.9.0

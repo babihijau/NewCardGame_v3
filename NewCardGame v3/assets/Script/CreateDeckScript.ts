@@ -31,10 +31,8 @@ export default class CreateDeck extends cc.Component {
         Deck.deckCards = [];
         Discarded.discardedCards = [];
         Hand.handCards = [];
-       // tslint:disable-next-line:comment-format
-        cc.log(Deal.interactableButton);
         Deal.interactableButton = true;
-        cc.log(Deal.interactableButton);
+        Deal.spawnCount = 0;
 
         var self: this = this;
 

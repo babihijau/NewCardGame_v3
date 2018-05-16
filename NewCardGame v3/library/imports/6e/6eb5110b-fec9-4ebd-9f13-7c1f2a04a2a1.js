@@ -11,20 +11,20 @@ var Deal = /** @class */ (function (_super) {
     __extends(Deal, _super);
     function Deal() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.button = null;
+        _this.DealButton = null;
+        _this.CreateButton = null;
         _this.cardsToDeal = 0;
         _this.spawnInterval = 0;
         _this.handLayout = null;
-        _this.spawnCount = 0;
         return _this;
     }
     Deal_1 = Deal;
     Deal.prototype.onLoad = function () {
-        this.spawnCount = 0;
+        Deal_1.spawnCount = 0;
     };
     Deal.prototype.onDealCard = function () {
         this.schedule(this.onDealCard, this.spawnInterval);
-        if (this.spawnCount >= this.cardsToDeal) {
+        if (Deal_1.spawnCount >= this.cardsToDeal) {
             this.clearRepeater();
             return;
         }
@@ -47,19 +47,29 @@ var Deal = /** @class */ (function (_super) {
             HandCardScript_1.default.handCards[i].setLocalZOrder(i);
         }
         DeckCardScript_1.default.deckCards.pop();
-        this.spawnCount++;
+        Deal_1.spawnCount++;
+        Deal_1.interactableButton = false;
+        if (Deal_1.spawnCount > 0 && Deal_1.spawnCount < 10) {
+            this.CreateButton.interactable = false;
+        }
+        else {
+            this.CreateButton.interactable = true;
+        }
     };
     Deal.prototype.update = function () {
-        this.button.interactable = Deal_1.interactableButton;
+        this.DealButton.interactable = Deal_1.interactableButton;
     };
     Deal.prototype.clearRepeater = function () {
         this.unschedule(this.onDealCard);
     };
-    // public static dealingArray: cc.Node[] = [];
+    Deal.spawnCount = 0;
     Deal.interactableButton = false;
     __decorate([
         property(cc.Button)
-    ], Deal.prototype, "button", void 0);
+    ], Deal.prototype, "DealButton", void 0);
+    __decorate([
+        property(cc.Button)
+    ], Deal.prototype, "CreateButton", void 0);
     __decorate([
         property
     ], Deal.prototype, "cardsToDeal", void 0);

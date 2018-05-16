@@ -37,10 +37,8 @@ var CreateDeck = /** @class */ (function (_super) {
         DeckCardScript_1.default.deckCards = [];
         DiscardedCardScript_1.default.discardedCards = [];
         HandCardScript_1.default.handCards = [];
-        // tslint:disable-next-line:comment-format
-        cc.log(DealScript_1.default.interactableButton);
         DealScript_1.default.interactableButton = true;
-        cc.log(DealScript_1.default.interactableButton);
+        DealScript_1.default.spawnCount = 0;
         var self = this;
         for (var i = 0; i < 52; i++) {
             var card = cc.instantiate(this.prefab);
