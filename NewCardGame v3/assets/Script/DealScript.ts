@@ -24,7 +24,7 @@ export default class Deal extends cc.Component {
     public static interactableButton: boolean = false;
 
     onLoad(): void {
-        Deal.spawnCount = 0;
+        //Deal.spawnCount = 0;
     }
 
     onDealCard(): void {

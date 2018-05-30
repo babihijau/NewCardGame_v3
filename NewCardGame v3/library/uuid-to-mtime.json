@@ -340,8 +340,8 @@
     "relativePath": "Texture"
   },
   "f10c1d32-5603-4b81-b0b1-9c49c408cafc": {
-    "asset": 1526448181758,
-    "meta": 1526448181788,
+    "asset": 1526458944241,
+    "meta": 1526458944283,
     "relativePath": "Scene\\Game.fire"
   },
   "83e0382f-8dd3-4ca5-9665-69336b1cbe18": {
@@ -835,13 +835,13 @@
     "relativePath": "image\\default_toggle_checkmark.png"
   },
   "41e6bc8c-f56f-4530-8b2f-3431fc6d0da9": {
-    "asset": 1526448314865,
-    "meta": 1526448374687,
+    "asset": 1527669645416,
+    "meta": 1527669664401,
     "relativePath": "Script\\CreateDeckScript.ts"
   },
   "6eb5110b-fec9-4ebd-9f13-7c1f2a04a2a1": {
-    "asset": 1526448471126,
-    "meta": 1526448473864,
+    "asset": 1527710641661,
+    "meta": 1527711843488,
     "relativePath": "Script\\DealScript.ts"
   }
 }

@@ -5,10 +5,10 @@
       "main": true,
       "url": "app://editor/index.html",
       "windowType": "dockable",
-      "x": -7,
-      "y": 0,
-      "width": 940,
-      "height": 775,
+      "x": -8,
+      "y": -8,
+      "width": 1382,
+      "height": 784,
       "layout": {
         "children": [
           {
@@ -18,7 +18,7 @@
                 "children": [
                   "hierarchy"
                 ],
-                "height": 322.328125,
+                "height": 326.84375,
                 "type": "panel",
                 "width": 204
               },
@@ -27,12 +27,12 @@
                 "children": [
                   "assets"
                 ],
-                "height": 321.671875,
+                "height": 326.15625,
                 "type": "panel",
                 "width": 204
               }
             ],
-            "height": 647,
+            "height": 656,
             "type": "dock-v",
             "width": 204
           },
@@ -43,9 +43,9 @@
                 "children": [
                   "scene"
                 ],
-                "height": 322.328125,
+                "height": 426.984375,
                 "type": "panel",
-                "width": 404
+                "width": 846
               },
               {
                 "active": 0,
@@ -53,21 +53,21 @@
                   "console",
                   "timeline"
                 ],
-                "height": 321.671875,
+                "height": 226,
                 "type": "panel",
-                "width": 404
+                "width": 846
               }
             ],
-            "height": 647,
+            "height": 656,
             "type": "dock-v",
-            "width": 404
+            "width": 846
           },
           {
             "active": 0,
             "children": [
               "inspector"
             ],
-            "height": 647,
+            "height": 656,
             "type": "panel",
             "width": 304
           }
@@ -96,6 +96,18 @@
       "y": 64,
       "width": 516,
       "height": 539
+    },
+    "project-settings": {
+      "x": 1650,
+      "y": 192,
+      "width": 600,
+      "height": 565
+    },
+    "preferences": {
+      "x": 1587,
+      "y": 236,
+      "width": 580,
+      "height": 565
     }
   }
 }

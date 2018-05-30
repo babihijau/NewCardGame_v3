@@ -45,15 +45,4 @@ export default class CreateDeck extends cc.Component {
         cc.log(Deck.deckCards[i].name);
         }
     }
-
-    /* spawnCard ():number {
-        if (this.num >= this.num2) {
-            this.clearRepeater();
-            return;
-        }
-    }
-
-    clearRepeater():void {
-        this.unschedule(this.spawnCard);
-    } */
 }

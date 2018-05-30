@@ -18,16 +18,6 @@ var CreateDeck = /** @class */ (function (_super) {
         _this.num = 0;
         _this.num2 = 52;
         return _this;
-        /* spawnCard ():number {
-            if (this.num >= this.num2) {
-                this.clearRepeater();
-                return;
-            }
-        }
-    
-        clearRepeater():void {
-            this.unschedule(this.spawnCard);
-        } */
     }
     CreateDeck.prototype.onLoad = function () {
         // this.onCreateDeck();
