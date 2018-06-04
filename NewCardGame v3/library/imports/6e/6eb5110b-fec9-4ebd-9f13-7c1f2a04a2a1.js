@@ -20,7 +20,7 @@ var Deal = /** @class */ (function (_super) {
     }
     Deal_1 = Deal;
     Deal.prototype.onLoad = function () {
-        //Deal.spawnCount = 0;
+        Deal_1.spawnCount = 0;
     };
     Deal.prototype.onDealCard = function () {
         this.schedule(this.onDealCard, this.spawnInterval);

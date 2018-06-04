@@ -1,7 +1,7 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "2_of_diamonds",
+    "name": "2D",
     "texture": "71eeff84-087c-45d3-8f28-bedbc83bbf1c",
     "atlas": "",
     "rect": [

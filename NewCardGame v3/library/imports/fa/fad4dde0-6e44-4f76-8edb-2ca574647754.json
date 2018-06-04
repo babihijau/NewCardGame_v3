@@ -1,7 +1,7 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "king_of_hearts",
+    "name": "KH",
     "texture": "79abedc3-f142-4bc4-b14f-ad63c77d0d5e",
     "atlas": "",
     "rect": [

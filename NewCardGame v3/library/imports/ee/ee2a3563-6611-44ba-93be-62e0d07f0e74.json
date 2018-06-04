@@ -1,7 +1,7 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "queen_of_hearts",
+    "name": "QH",
     "texture": "725ec528-6fbc-462b-ad9d-0feb80ff37ff",
     "atlas": "",
     "rect": [

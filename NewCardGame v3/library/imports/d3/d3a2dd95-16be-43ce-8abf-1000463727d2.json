@@ -1,7 +1,7 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "king_of_clubs",
+    "name": "KC",
     "texture": "c6fec0b7-447d-4609-b1b4-123a8878af1b",
     "atlas": "",
     "rect": [

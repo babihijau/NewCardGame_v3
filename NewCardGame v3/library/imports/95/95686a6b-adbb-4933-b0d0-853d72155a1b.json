@@ -1,7 +1,7 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "ace_of_spades",
+    "name": "AS",
     "texture": "c7e2751b-62ff-47f3-8bc3-0e239a667a12",
     "atlas": "",
     "rect": [

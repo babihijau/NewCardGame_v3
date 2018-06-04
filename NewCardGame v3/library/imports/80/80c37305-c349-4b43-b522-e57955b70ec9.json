@@ -1,7 +1,7 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "king_of_spades",
+    "name": "KS",
     "texture": "a0ac8373-6fbc-427f-8e71-f6b7b9c0b0a9",
     "atlas": "",
     "rect": [

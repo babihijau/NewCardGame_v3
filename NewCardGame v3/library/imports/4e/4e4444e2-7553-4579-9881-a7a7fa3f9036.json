@@ -1,7 +1,7 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "queen_of_diamonds",
+    "name": "QD",
     "texture": "11d3fd05-854e-44df-b299-9a4f2345f1e7",
     "atlas": "",
     "rect": [

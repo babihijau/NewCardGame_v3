@@ -1,7 +1,7 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "ace_of_diamonds",
+    "name": "AD",
     "texture": "8a7d9816-39c6-4bbe-af48-28c10a81360c",
     "atlas": "",
     "rect": [
