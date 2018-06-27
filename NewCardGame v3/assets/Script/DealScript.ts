@@ -1,7 +1,6 @@
 import DragCard from "./DragCardScript";
 import Hand from "./HandCardScript";
 import Deck from "./DeckCardScript";
-import CreateDeck from "./CreateDeckScript";
 
 const { ccclass, property } = cc._decorator;
 
@@ -24,7 +23,7 @@ export default class Deal extends cc.Component {
     public static interactableButton: boolean = false;
 
     onLoad(): void {
-            Deal.spawnCount = 0;
+        Deal.spawnCount = 0;
     }
 
     onDealCard(): void {
@@ -56,25 +55,27 @@ export default class Deal extends cc.Component {
         }
 
         DragCard.currentHandSpacing = spacing;
-
         for (var i: number = 0; i < cardsInHand; i++) {
+            let last: boolean = i === cardsInHand;
             Hand.handCards[i].stopAllActions();
-            Hand.handCards[i].runAction(cc.spawn(cc.rotateTo(0.1, 0), cc.moveTo(0.1, cc.p(firstIndex + (spacing * i), this.handLayout.y))));
+            Hand.handCards[i].runAction(cc.spawn(cc.rotateTo(0.1, 0),
+                cc.sequence([cc.moveTo(0.1, cc.p(firstIndex + (spacing * i), this.handLayout.y)), cc.callFunc(() => {
+                    if (last) {
+                        this.DealButton.interactable = true;
+                    }
+                })])
+            ));
             Hand.handCards[i].setLocalZOrder(i);
         }
 
         Deck.deckCards.pop();
         Deal.spawnCount++;
         Deal.interactableButton = false;
-        if (Deal.spawnCount>0 && Deal.spawnCount<10) {
+        if (Deal.spawnCount > 0 && Deal.spawnCount < 10) {
             this.CreateButton.interactable = false;
         } else {
             this.CreateButton.interactable = true;
         }
-    }
-
-    update(): void {
-        this.DealButton.interactable = Deal.interactableButton;
     }
 
     clearRepeater(): void {

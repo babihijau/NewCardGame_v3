@@ -9,6 +9,7 @@ var PrefabCard = /** @class */ (function (_super) {
     function PrefabCard() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.spriteList = [];
+        _this.sprite = null;
         return _this;
     }
     PrefabCard_1 = PrefabCard;
@@ -17,8 +18,9 @@ var PrefabCard = /** @class */ (function (_super) {
             PrefabCard_1.num[i] = i;
         }
         var id = this.genRandom();
-        var sprite = this.getComponent(cc.Sprite);
-        sprite.spriteFrame = this.spriteList[id];
+        // var sprite: cc.Sprite = this.getComponent(cc.Sprite);
+        // sprite.spriteFrame = this.spriteList[id];
+        this.sprite.spriteFrame = this.spriteList[id];
     };
     // should be randomly generated, ill get to that later.. eventually
     PrefabCard.prototype.genRandom = function () {
@@ -33,6 +35,9 @@ var PrefabCard = /** @class */ (function (_super) {
     __decorate([
         property(cc.SpriteFrame)
     ], PrefabCard.prototype, "spriteList", void 0);
+    __decorate([
+        property(cc.Sprite)
+    ], PrefabCard.prototype, "sprite", void 0);
     PrefabCard = PrefabCard_1 = __decorate([
         ccclass
     ], PrefabCard);

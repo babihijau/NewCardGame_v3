@@ -1,14 +1,18 @@
 import Hand from "./HandCardScript";
+import PrefabCard from "./PrefabCardScript";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class VerifyCard extends cc.Component {
 
+    @property(cc.Node)
+    canvasNode: cc.Node = null;
 
-    public static handArray: string[] = [];
+    public static handArrayNode: PrefabCard[][] = [];
+    public static handArrayName: string[] = [];
 
-    update(): void {
+    onHighlight(): void {
 
         class MeldNode {
             cards: string[];
@@ -78,6 +82,22 @@ export default class VerifyCard extends cc.Component {
                         }
                     }
                 }
+                /*                 for (let i: number = 0; i < Hand.handCards.length; i++) {
+                                    if (Hand.handCards[i].name === cards[0]) {
+                                        var a: cc.Node = Hand.handCards[i];
+                                    }
+                                    if (Hand.handCards[i].name === cards[1]) {
+                                        var b: cc.Node = Hand.handCards[i];
+                                    }
+                                    if (Hand.handCards[i].name === cards[2]) {
+                                        var c: cc.Node = Hand.handCards[i];
+                                    }
+                                }
+                                if (Hand.handCards.indexOf(a) !== Hand.handCards.indexOf(b) - 1
+                                || Hand.handCards.indexOf(b) !== Hand.handCards.indexOf(c) - 1) {
+                                    return false;
+                                }
+                                 */
                 return true;
             }
 
@@ -99,6 +119,21 @@ export default class VerifyCard extends cc.Component {
                     }
                     current_value++;
                 }
+                /*                 for (let i: number = 0; i < Hand.handCards.length; i++) {
+                                    if (Hand.handCards[i].name === cards[0]) {
+                                        var a: cc.Node = Hand.handCards[i];
+                                    }
+                                    if (Hand.handCards[i].name === cards[1]) {
+                                        var b: cc.Node = Hand.handCards[i];
+                                    }
+                                    if (Hand.handCards[i].name === cards[2]) {
+                                        var c: cc.Node = Hand.handCards[i];
+                                    }
+                                }
+                                if (Hand.handCards.indexOf(a) !== Hand.handCards.indexOf(b) - 1
+                                || Hand.handCards.indexOf(b) !== Hand.handCards.indexOf(c) - 1) {
+                                    return false;
+                                } */
                 return true;
             }
 
@@ -220,94 +255,6 @@ export default class VerifyCard extends cc.Component {
                 return { score: best_score, melds: best_melds };
             }
 
-            static clean(hand2: string[], min: number, max: number, poss_meld: string[]): string[] {
-                let j: number = 0;
-                if (min < 4) {
-                    for (j = 0; j < min; j++) {
-                        hand2.shift();
-                    }
-                }
-                if (hand2.length - max < 4) {
-                    for (j = 0; j < hand2.length - max; j++) {
-                        hand2.pop();
-                    }
-                }
-
-                for (let i: number = 0; i < poss_meld.length; i++) {
-                    let c: string = poss_meld[i];
-                    hand2 = hand2.filter((m) => {
-                        return (m.indexOf(c) === -1);
-                    });
-                }
-                return hand2;
-            }
-
-            static highlight(hand: string[]): string[][] {
-                let hand2: string[] = hand.slice();
-                let highlight: string[][] = [];
-                let min: number = 0;
-                let max: number = 0;
-
-                // 5 card suit melds
-                for (let i: number = 0; i < hand2.length - 4; i++) {
-                    let poss_meld: string[] = hand2.slice(i, i + 5);
-                    if (this.is_suit_meld(poss_meld)) {
-                        min = i;
-                        max = i + 5;
-                        highlight.push(poss_meld);
-                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
-                        i--;
-                    }
-                }
-
-                // 4 card number meld
-                for (let i: number = 0; i < hand2.length - 3; i++) {
-                    let poss_meld: string[] = hand2.slice(i, i + 4);
-                    if (this.is_number_meld(poss_meld)) {
-                        min = i;
-                        max = i + 4;
-                        highlight.push(poss_meld);
-                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
-                        i--;
-                    }
-                }
-                // 4 number meld
-                for (let i: number = 0; i < hand2.length - 3; i++) {
-                    let poss_meld: string[] = hand2.slice(i, i + 4);
-                    if (this.is_number_meld(poss_meld)) {
-                        min = i;
-                        max = i + 4;
-                        highlight.push(poss_meld);
-                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
-                        i--;
-                    }
-                }
-                // 3 number meld
-                for (let i: number = 0; i < hand2.length - 2; i++) {
-                    let poss_meld: string[] = hand2.slice(i, i + 3);
-                    if (this.is_number_meld(poss_meld)) {
-                        min = i;
-                        max = i + 3;
-                        highlight.push(poss_meld);
-                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
-                        i--;
-                    }
-                }
-                // 3 card suit meld
-                for (let i: number = 0; i < hand2.length - 2; i++) {
-                    let poss_meld: string[] = hand2.slice(i, i + 3);
-                    if (this.is_suit_meld(poss_meld)) {
-                        min = i;
-                        max = i + 3;
-                        highlight.push(poss_meld);
-                        hand.splice(i, 3);
-                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
-                        i--;
-                    }
-                }
-                return highlight;
-            }
-
             static verify(hand: string[]): { score: number, melds: string[][], hand: string[]; } {
                 // first, check for 4 card melds of the same-numbered card
                 let all_melds: string[][] = [];
@@ -381,14 +328,233 @@ export default class VerifyCard extends cc.Component {
                     return { score: deadwood, melds: best_melds, hand: hand };
                 }
             }
-        }
-        VerifyCard.handArray=[];
-        for (var i: number = 0; i < Hand.handCards.length; i++) {
 
-            VerifyCard.handArray[i] = Hand.handCards[i].name;
+            static clean(hand2: string[], min: number, max: number, poss_meld: string[]): string[] {
+
+               /* let j: number = 0;
+                if (min < 3) {
+                    for (j = 0; j < min; j++) {
+                        hand2.shift();
+                    }
+                }
+                                if (hand2.length - max < 2) {
+                                    for (j = 0; j < hand2.length - 1 - max; j++) {
+                                        hand2.pop();
+                                    }
+                                } */
+
+                for (let i: number = 0; i < poss_meld.length; i++) {
+                    let c: string = poss_meld[i];
+                    hand2 = hand2.filter((m) => {
+                        return (m.indexOf(c) === -1);
+                    });
+                }
+                return hand2;
+            }
+
+            static highlight(hand: string[]): string[][] {
+                let hand2: string[] = hand.slice();
+                let highlight: string[][] = [];
+                let min: number = 0;
+                let max: number = 0;
+
+                // 13 card sequence melds
+                for (let i: number = 0; i < hand2.length - 12; i++) {
+                    let poss_meld: string[] = hand2.slice(i, i + 13);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 13;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 12 card sequence melds
+                for (let i: number = 0; i < hand2.length - 11; i++) {
+                    let poss_meld: string[] = hand2.slice(i, i + 12);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 12;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 11 card sequence melds
+                for (let i: number = 0; i < hand2.length - 10; i++) {
+                    let poss_meld: string[] = hand2.slice(i, i + 11);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 11;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 10 card sequence melds
+                for (let i: number = 0; i < hand2.length - 9; i++) {
+                    let poss_meld: string[] = hand2.slice(i, i + 10);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 10;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 9 card sequence melds
+                for (let i: number = 0; i < hand2.length - 8; i++) {
+                    let poss_meld: string[] = hand2.slice(i, i + 9);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 9;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 8 card sequence melds
+                for (let i: number = 0; i < hand2.length - 7; i++) {
+                    let poss_meld: string[] = hand2.slice(i, i + 8);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 8;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 7 card sequence melds
+                for (let i: number = 0; i < hand2.length - 6; i++) {
+                    let poss_meld: string[] = hand2.slice(i, i + 7);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 7;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 6 card sequence melds
+                for (let i: number = 0; i < hand2.length - 5; i++) {
+                    let poss_meld: string[] = hand2.slice(i, i + 6);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 6;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 5 card sequence melds
+                for (let i: number = 0; i < hand2.length - 4; i++) {
+                    let poss_meld: string[] = hand2.slice(i, i + 5);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 5;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 4 same number meld
+                for (let i: number = 0; i < hand2.length - 3; i++) {
+                    let poss_meld: string[] = hand2.slice(i, i + 4);
+                    if (this.is_number_meld(poss_meld)) {
+                        min = i;
+                        max = i + 4;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 4 card sequence meld
+                for (let i: number = 0; i < hand2.length - 3; i++) {
+                    let poss_meld: string[] = hand2.slice(i, i + 4);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 4;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 3 same number meld
+                for (let i: number = 0; i < hand2.length - 2; i++) {
+                    let poss_meld: string[] = hand2.slice(i, i + 3);
+                    if (this.is_number_meld(poss_meld)) {
+                        min = i;
+                        max = i + 3;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 3 card sequence meld
+                for (let i: number = 0; i < hand2.length - 2; i++) {
+                    let poss_meld: string[] = hand2.slice(i, i + 3);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 3;
+                        highlight.push(poss_meld);
+                        hand.splice(i, 3);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                cc.log("Not meld: ", hand2);
+                return highlight;
+            }
         }
-        // console.log(VerifyCard.handArray);
-        // console.log(Evaluator.verify(VerifyCard.handArray));
-        console.log(Evaluator.highlight(VerifyCard.handArray));
+        VerifyCard.handArrayNode = [];
+
+        VerifyCard.handArrayName = [];
+        for (let i: number = 0; i < Hand.handCards.length; i++) {
+
+            VerifyCard.handArrayName[i] = Hand.handCards[i].name;
+        }
+
+        let handIn2DStringArray: string[][];
+        handIn2DStringArray = (Evaluator.highlight(VerifyCard.handArrayName));
+
+        let map: { [key: string]: cc.Node } = {};
+
+        VerifyCard.handArrayNode = this.stringToNode(handIn2DStringArray);
+        // verifyCard.handArrayNode = this.cleanHighlight(VerifyCard.handArrayNode);
+        // doesnt work because cleaning after concactenated will remove possible additional melds
+    }
+
+    /*     cleanHighlight(handArrayNode: cc.Node[][]): cc.Node[][] {
+
+                handArrayNode.forEach((item,index) => {
+                    // cc.log("bugima",Hand.handCards.indexOf(item[0]));
+                    // cc.log("bugima2",Hand.handCards.indexOf(item[1]));
+                    if (Hand.handCards.indexOf(item[0]) !== Hand.handCards.indexOf(item[1])-1) {
+                        // cc.log("false",index);
+                        handArrayNode.splice(index,1);
+                    }
+                });
+
+                return handArrayNode;
+            } */
+
+    stringToNode(handIn2DStringArray: string[][]): PrefabCard[][] {
+
+        var handBackTo2DNodeArray: PrefabCard[][] = [];
+        var nodeArray:PrefabCard[] = [];
+
+        handIn2DStringArray.forEach((item, index) => {
+            nodeArray = [];
+            item.forEach((item2) => {
+                Hand.handCards.forEach((f) => {
+                    if (item2 === f.name) {
+                        nodeArray.push(f.getComponent(PrefabCard));
+                    }
+                });
+                handBackTo2DNodeArray[index] = nodeArray;
+            });
+        });
+
+        return handBackTo2DNodeArray;
     }
 }

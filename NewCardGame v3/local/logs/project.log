@@ -1,0 +1,54 @@
+2018-06-27T04:40:31.770Z - normal: Load ~/.CocosCreator/settings.json
+2018-06-27T04:40:31.781Z - normal: checking language setting...
+2018-06-27T04:40:31.782Z - normal: Language: en
+2018-06-27T04:40:34.186Z - success: protocol editor-framework registered
+2018-06-27T04:40:34.186Z - success: protocol app registered
+2018-06-27T04:40:34.186Z - success: protocol theme registered
+2018-06-27T04:40:34.187Z - success: protocol packages registered
+2018-06-27T04:40:34.187Z - success: protocol unpack registerred
+2018-06-27T04:40:34.187Z - success: protocol disable-commonjs registerred
+2018-06-27T04:40:35.335Z - normal: connected!
+2018-06-27T04:40:35.336Z - normal: Check project C:\Users\User\Documents\NewCardGame_v3\NewCardGame v3
+2018-06-27T04:40:35.340Z - normal: Initializing Cocos2d
+2018-06-27T04:40:35.714Z - normal: Initializing Asset Database
+2018-06-27T04:40:35.783Z - success: protocol uuid registerred
+2018-06-27T04:40:35.783Z - success: protocol db registerred
+2018-06-27T04:40:35.783Z - success: protocol thumbnail registerred
+2018-06-27T04:40:35.783Z - normal: Loading editor/builtin packages
+2018-06-27T04:40:35.818Z - success: anysdk loaded
+2018-06-27T04:40:36.025Z - success: assets loaded
+2018-06-27T04:40:36.028Z - success: builder loaded
+2018-06-27T04:40:36.031Z - success: cocos-analytics loaded
+2018-06-27T04:40:36.035Z - success: console loaded
+2018-06-27T04:40:36.094Z - success: fb-instant-games loaded
+2018-06-27T04:40:36.097Z - success: hierarchy loaded
+2018-06-27T04:40:36.101Z - success: inspector loaded
+2018-06-27T04:40:36.103Z - success: keystore loaded
+2018-06-27T04:40:36.109Z - success: node-library loaded
+2018-06-27T04:40:36.111Z - success: package-asset loaded
+2018-06-27T04:40:36.114Z - success: preferences loaded
+2018-06-27T04:40:36.116Z - success: project-exporter loaded
+2018-06-27T04:40:36.143Z - success: project-importer loaded
+2018-06-27T04:40:36.145Z - success: project-settings loaded
+2018-06-27T04:40:36.148Z - success: ui-kit loaded
+2018-06-27T04:40:36.150Z - success: ui-grid loaded
+2018-06-27T04:40:36.158Z - success: scene loaded
+2018-06-27T04:40:36.161Z - success: sprite-editor loaded
+2018-06-27T04:40:36.165Z - success: store loaded
+2018-06-27T04:40:36.175Z - success: timeline loaded
+2018-06-27T04:40:36.175Z - normal: Loading builtin packages
+2018-06-27T04:40:36.180Z - success: asset-db-debugger loaded
+2018-06-27T04:40:36.182Z - success: code-editor loaded
+2018-06-27T04:40:36.183Z - success: color-picker loaded
+2018-06-27T04:40:36.186Z - success: package-manager loaded
+2018-06-27T04:40:36.195Z - success: sdkbox loaded
+2018-06-27T04:40:36.198Z - success: tester loaded
+2018-06-27T04:40:36.200Z - success: ui-kit-preview-extra loaded
+2018-06-27T04:40:36.213Z - success: ui-kit-preview loaded
+2018-06-27T04:40:36.217Z - success: ui-tree loaded
+2018-06-27T04:40:38.101Z - normal: Initializing project C:\Users\User\Documents\NewCardGame_v3\NewCardGame v3
+2018-06-27T04:40:38.109Z - normal: Loading packages
+2018-06-27T04:40:38.116Z - normal: Watching packages
+2018-06-27T04:40:38.138Z - normal: Run Application
+2018-06-27T04:40:39.726Z - success: preview server running at http://localhost:7457
+2018-06-27T04:40:49.163Z - normal: 1.9.0

@@ -101,7 +101,7 @@ export default class DragCard extends cc.Component {
                 DragCard.currentDiscardIndex = Discarded.discardedCards.lastIndexOf(this.node);
                 this.previousCardIn = "Discarded";
             }
-            cc.log(this.previousCardIn);
+            // cc.log(this.previousCardIn);
 
             if (!this.propagate) {
                 event.stopPropagation();
@@ -292,9 +292,9 @@ export default class DragCard extends cc.Component {
             DragCard.bufferX = 0;
             this.onSortTable();
 
-            cc.log("Discarded \n", Discarded.discardedCards);
-            cc.log("Hand \n", Hand.handCards);
-            cc.log("Deck \n", Deck.deckCards);
+           // cc.log("Discarded \n", Discarded.discardedCards);
+          //  cc.log("Hand \n", Hand.handCards);
+          //  cc.log("Deck \n", Deck.deckCards);
 
         }, this);
 

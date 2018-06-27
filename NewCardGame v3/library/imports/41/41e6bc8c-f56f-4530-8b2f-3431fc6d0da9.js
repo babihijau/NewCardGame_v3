@@ -15,8 +15,6 @@ var CreateDeck = /** @class */ (function (_super) {
         _this.prefab = null;
         _this.root = null;
         _this.position1 = cc.p(0, 0);
-        _this.num = 0;
-        _this.num2 = 52;
         return _this;
     }
     CreateDeck.prototype.onLoad = function () {
@@ -29,14 +27,12 @@ var CreateDeck = /** @class */ (function (_super) {
         HandCardScript_1.default.handCards = [];
         DealScript_1.default.interactableButton = true;
         DealScript_1.default.spawnCount = 0;
-        var self = this;
         for (var i = 0; i < 52; i++) {
             var card = cc.instantiate(this.prefab);
             card.parent = this.root;
             card.position = cc.find("DeckLayout", this.root.parent).position;
             DeckCardScript_1.default.deckCards[i] = card;
-            card.name = DeckCardScript_1.default.deckCards[i].getComponent(cc.Sprite).spriteFrame.name;
-            cc.log(DeckCardScript_1.default.deckCards[i].name);
+            // card.name = Deck.deckCards[i].getComponent(cc.Sprite).spriteFrame.name;
         }
     };
     CreateDeck.cardArray = [];

@@ -4,14 +4,17 @@ cc._RF.push(module, '42cf9UVvK9BGoQlI7vwQvQc', 'VerifyCardScript', __filename);
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var HandCardScript_1 = require("./HandCardScript");
+var PrefabCardScript_1 = require("./PrefabCardScript");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var VerifyCard = /** @class */ (function (_super) {
     __extends(VerifyCard, _super);
     function VerifyCard() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.canvasNode = null;
+        return _this;
     }
     VerifyCard_1 = VerifyCard;
-    VerifyCard.prototype.update = function () {
+    VerifyCard.prototype.onHighlight = function () {
         var MeldNode = /** @class */ (function () {
             function MeldNode(cards, parent) {
                 this.parent = parent;
@@ -57,12 +60,28 @@ var VerifyCard = /** @class */ (function (_super) {
                 }
                 else {
                     var num = this.card_number_value(cards[0]);
-                    for (var i_1 = 0; i_1 < cards.length; i_1++) {
-                        if (this.card_number_value(cards[i_1]) !== num) {
+                    for (var i = 0; i < cards.length; i++) {
+                        if (this.card_number_value(cards[i]) !== num) {
                             return false;
                         }
                     }
                 }
+                /*                 for (let i: number = 0; i < Hand.handCards.length; i++) {
+                                    if (Hand.handCards[i].name === cards[0]) {
+                                        var a: cc.Node = Hand.handCards[i];
+                                    }
+                                    if (Hand.handCards[i].name === cards[1]) {
+                                        var b: cc.Node = Hand.handCards[i];
+                                    }
+                                    if (Hand.handCards[i].name === cards[2]) {
+                                        var c: cc.Node = Hand.handCards[i];
+                                    }
+                                }
+                                if (Hand.handCards.indexOf(a) !== Hand.handCards.indexOf(b) - 1
+                                || Hand.handCards.indexOf(b) !== Hand.handCards.indexOf(c) - 1) {
+                                    return false;
+                                }
+                                 */
                 return true;
             };
             Evaluator.is_suit_meld = function (cards) {
@@ -71,18 +90,33 @@ var VerifyCard = /** @class */ (function (_super) {
                 }
                 var suit = cards[0].length === 2 ? cards[0].substr(1, 1) : cards[0].substr(2, 1);
                 var current_value = this.card_number_value(cards[0]) + 1;
-                for (var i_2 = 0; i_2 < cards.length; i_2++) {
-                    var s = cards[i_2].length === 2 ? cards[i_2].substr(1, 1) : cards[i_2].substr(2, 1);
+                for (var i = 0; i < cards.length; i++) {
+                    var s = cards[i].length === 2 ? cards[i].substr(1, 1) : cards[i].substr(2, 1);
                     if (suit !== s) {
                         return false;
                     }
                 }
-                for (var i_3 = 1; i_3 < cards.length; i_3++) {
-                    if (this.card_number_value(cards[i_3]) !== current_value) {
+                for (var i = 1; i < cards.length; i++) {
+                    if (this.card_number_value(cards[i]) !== current_value) {
                         return false;
                     }
                     current_value++;
                 }
+                /*                 for (let i: number = 0; i < Hand.handCards.length; i++) {
+                                    if (Hand.handCards[i].name === cards[0]) {
+                                        var a: cc.Node = Hand.handCards[i];
+                                    }
+                                    if (Hand.handCards[i].name === cards[1]) {
+                                        var b: cc.Node = Hand.handCards[i];
+                                    }
+                                    if (Hand.handCards[i].name === cards[2]) {
+                                        var c: cc.Node = Hand.handCards[i];
+                                    }
+                                }
+                                if (Hand.handCards.indexOf(a) !== Hand.handCards.indexOf(b) - 1
+                                || Hand.handCards.indexOf(b) !== Hand.handCards.indexOf(c) - 1) {
+                                    return false;
+                                } */
                 return true;
             };
             Evaluator.valid_card = function (card) {
@@ -159,14 +193,14 @@ var VerifyCard = /** @class */ (function (_super) {
                 melds.forEach(function (m) {
                     to_return.push(m);
                 });
-                var _loop_1 = function (i_4) {
-                    var c = meld[i_4];
+                var _loop_1 = function (i) {
+                    var c = meld[i];
                     to_return = to_return.filter(function (m) {
                         return (m.indexOf(c) === -1);
                     });
                 };
-                for (var i_4 = 0; i_4 < meld.length; i_4++) {
-                    _loop_1(i_4);
+                for (var i = 0; i < meld.length; i++) {
+                    _loop_1(i);
                 }
                 return to_return;
             };
@@ -208,99 +242,13 @@ var VerifyCard = /** @class */ (function (_super) {
                 best_melds = this.get_meld_set(best_leaf);
                 return { score: best_score, melds: best_melds };
             };
-            Evaluator.clean = function (hand2, min, max, poss_meld) {
-                var j = 0;
-                if (min < 4) {
-                    for (j = 0; j < min; j++) {
-                        hand2.shift();
-                    }
-                }
-                if (hand2.length - max < 4) {
-                    for (j = 0; j < hand2.length - max; j++) {
-                        hand2.pop();
-                    }
-                }
-                var _loop_2 = function (i_5) {
-                    var c = poss_meld[i_5];
-                    hand2 = hand2.filter(function (m) {
-                        return (m.indexOf(c) === -1);
-                    });
-                };
-                for (var i_5 = 0; i_5 < poss_meld.length; i_5++) {
-                    _loop_2(i_5);
-                }
-                return hand2;
-            };
-            Evaluator.highlight = function (hand) {
-                var hand2 = hand.slice();
-                var highlight = [];
-                var min = 0;
-                var max = 0;
-                // 5 card suit melds
-                for (var i_6 = 0; i_6 < hand2.length - 4; i_6++) {
-                    var poss_meld = hand2.slice(i_6, i_6 + 5);
-                    if (this.is_suit_meld(poss_meld)) {
-                        min = i_6;
-                        max = i_6 + 5;
-                        highlight.push(poss_meld);
-                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
-                        i_6--;
-                    }
-                }
-                // 4 card number meld
-                for (var i_7 = 0; i_7 < hand2.length - 3; i_7++) {
-                    var poss_meld = hand2.slice(i_7, i_7 + 4);
-                    if (this.is_number_meld(poss_meld)) {
-                        min = i_7;
-                        max = i_7 + 4;
-                        highlight.push(poss_meld);
-                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
-                        i_7--;
-                    }
-                }
-                // 4 number meld
-                for (var i_8 = 0; i_8 < hand2.length - 3; i_8++) {
-                    var poss_meld = hand2.slice(i_8, i_8 + 4);
-                    if (this.is_number_meld(poss_meld)) {
-                        min = i_8;
-                        max = i_8 + 4;
-                        highlight.push(poss_meld);
-                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
-                        i_8--;
-                    }
-                }
-                // 3 number meld
-                for (var i_9 = 0; i_9 < hand2.length - 2; i_9++) {
-                    var poss_meld = hand2.slice(i_9, i_9 + 3);
-                    if (this.is_number_meld(poss_meld)) {
-                        min = i_9;
-                        max = i_9 + 3;
-                        highlight.push(poss_meld);
-                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
-                        i_9--;
-                    }
-                }
-                // 3 card suit meld
-                for (var i_10 = 0; i_10 < hand2.length - 2; i_10++) {
-                    var poss_meld = hand2.slice(i_10, i_10 + 3);
-                    if (this.is_suit_meld(poss_meld)) {
-                        min = i_10;
-                        max = i_10 + 3;
-                        highlight.push(poss_meld);
-                        hand.splice(i_10, 3);
-                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
-                        i_10--;
-                    }
-                }
-                return highlight;
-            };
             Evaluator.verify = function (hand) {
                 var _this = this;
                 // first, check for 4 card melds of the same-numbered card
                 var all_melds = [];
                 hand = Evaluator.sort_by_value(hand);
-                for (var i_11 = 0; i_11 < hand.length - 3; i_11++) {
-                    var poss_meld = hand.slice(i_11, i_11 + 4);
+                for (var i = 0; i < hand.length - 3; i++) {
+                    var poss_meld = hand.slice(i, i + 4);
                     if (this.is_number_meld(poss_meld)) {
                         all_melds.push(poss_meld);
                         // when a 4-card meld is found, also add all the possible 3-card melds which
@@ -310,30 +258,30 @@ var VerifyCard = /** @class */ (function (_super) {
                     }
                 }
                 // next, check for 3 card melds of the same-numbered card
-                for (var i_12 = 0; i_12 < hand.length - 2; i_12++) {
-                    var poss_meld = hand.slice(i_12, i_12 + 3);
+                for (var i = 0; i < hand.length - 2; i++) {
+                    var poss_meld = hand.slice(i, i + 3);
                     if (this.is_number_meld(poss_meld)) {
                         all_melds.push(poss_meld);
                     }
                 }
                 // next, check for 3 card melds in the same suit
                 hand = this.sort_by_suit(hand);
-                for (var i_13 = 0; i_13 < hand.length - 2; i_13++) {
-                    var poss_meld = hand.slice(i_13, i_13 + 3);
+                for (var i = 0; i < hand.length - 2; i++) {
+                    var poss_meld = hand.slice(i, i + 3);
                     if (this.is_suit_meld(poss_meld)) {
                         all_melds.push(poss_meld);
                     }
                 }
                 // next, 4 card melds
-                for (var i_14 = 0; i_14 < hand.length - 3; i_14++) {
-                    var poss_meld = hand.slice(i_14, i_14 + 4);
+                for (var i = 0; i < hand.length - 3; i++) {
+                    var poss_meld = hand.slice(i, i + 4);
                     if (this.is_suit_meld(poss_meld)) {
                         all_melds.push(poss_meld);
                     }
                 }
                 // finally, 5 card melds
-                for (var i_15 = 0; i_15 < hand.length - 4; i_15++) {
-                    var poss_meld = hand.slice(i_15, i_15 + 5);
+                for (var i = 0; i < hand.length - 4; i++) {
+                    var poss_meld = hand.slice(i, i + 5);
                     if (this.is_suit_meld(poss_meld)) {
                         all_melds.push(poss_meld);
                     }
@@ -369,6 +317,181 @@ var VerifyCard = /** @class */ (function (_super) {
                     return { score: deadwood, melds: best_melds, hand: hand };
                 }
             };
+            Evaluator.clean = function (hand2, min, max, poss_meld) {
+                /* let j: number = 0;
+                 if (min < 3) {
+                     for (j = 0; j < min; j++) {
+                         hand2.shift();
+                     }
+                 }
+                                 if (hand2.length - max < 2) {
+                                     for (j = 0; j < hand2.length - 1 - max; j++) {
+                                         hand2.pop();
+                                     }
+                                 } */
+                var _loop_2 = function (i) {
+                    var c = poss_meld[i];
+                    hand2 = hand2.filter(function (m) {
+                        return (m.indexOf(c) === -1);
+                    });
+                };
+                for (var i = 0; i < poss_meld.length; i++) {
+                    _loop_2(i);
+                }
+                return hand2;
+            };
+            Evaluator.highlight = function (hand) {
+                var hand2 = hand.slice();
+                var highlight = [];
+                var min = 0;
+                var max = 0;
+                // 13 card sequence melds
+                for (var i = 0; i < hand2.length - 12; i++) {
+                    var poss_meld = hand2.slice(i, i + 13);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 13;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 12 card sequence melds
+                for (var i = 0; i < hand2.length - 11; i++) {
+                    var poss_meld = hand2.slice(i, i + 12);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 12;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 11 card sequence melds
+                for (var i = 0; i < hand2.length - 10; i++) {
+                    var poss_meld = hand2.slice(i, i + 11);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 11;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 10 card sequence melds
+                for (var i = 0; i < hand2.length - 9; i++) {
+                    var poss_meld = hand2.slice(i, i + 10);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 10;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 9 card sequence melds
+                for (var i = 0; i < hand2.length - 8; i++) {
+                    var poss_meld = hand2.slice(i, i + 9);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 9;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 8 card sequence melds
+                for (var i = 0; i < hand2.length - 7; i++) {
+                    var poss_meld = hand2.slice(i, i + 8);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 8;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 7 card sequence melds
+                for (var i = 0; i < hand2.length - 6; i++) {
+                    var poss_meld = hand2.slice(i, i + 7);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 7;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 6 card sequence melds
+                for (var i = 0; i < hand2.length - 5; i++) {
+                    var poss_meld = hand2.slice(i, i + 6);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 6;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 5 card sequence melds
+                for (var i = 0; i < hand2.length - 4; i++) {
+                    var poss_meld = hand2.slice(i, i + 5);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 5;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 4 same number meld
+                for (var i = 0; i < hand2.length - 3; i++) {
+                    var poss_meld = hand2.slice(i, i + 4);
+                    if (this.is_number_meld(poss_meld)) {
+                        min = i;
+                        max = i + 4;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 4 card sequence meld
+                for (var i = 0; i < hand2.length - 3; i++) {
+                    var poss_meld = hand2.slice(i, i + 4);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 4;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 3 same number meld
+                for (var i = 0; i < hand2.length - 2; i++) {
+                    var poss_meld = hand2.slice(i, i + 3);
+                    if (this.is_number_meld(poss_meld)) {
+                        min = i;
+                        max = i + 3;
+                        highlight.push(poss_meld);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                // 3 card sequence meld
+                for (var i = 0; i < hand2.length - 2; i++) {
+                    var poss_meld = hand2.slice(i, i + 3);
+                    if (this.is_suit_meld(poss_meld)) {
+                        min = i;
+                        max = i + 3;
+                        highlight.push(poss_meld);
+                        hand.splice(i, 3);
+                        hand2 = Evaluator.clean(hand2, min, max, poss_meld);
+                        i--;
+                    }
+                }
+                cc.log("Not meld: ", hand2);
+                return highlight;
+            };
             Evaluator.full_deck = [
                 "AC", "2C", "3C", "4C", "5C", "6C", "7C", "8C", "9C", "10C", "JC", "QC", "KC",
                 "AD", "2D", "3D", "4D", "5D", "6D", "7D", "8D", "9D", "10D", "JD", "QD", "KD",
@@ -383,15 +506,52 @@ var VerifyCard = /** @class */ (function (_super) {
             };
             return Evaluator;
         }());
-        VerifyCard_1.handArray = [];
+        VerifyCard_1.handArrayNode = [];
+        VerifyCard_1.handArrayName = [];
         for (var i = 0; i < HandCardScript_1.default.handCards.length; i++) {
-            VerifyCard_1.handArray[i] = HandCardScript_1.default.handCards[i].name;
+            VerifyCard_1.handArrayName[i] = HandCardScript_1.default.handCards[i].name;
         }
-        // console.log(VerifyCard.handArray);
-        // console.log(Evaluator.verify(VerifyCard.handArray));
-        console.log(Evaluator.highlight(VerifyCard_1.handArray));
+        var handIn2DStringArray;
+        handIn2DStringArray = (Evaluator.highlight(VerifyCard_1.handArrayName));
+        var map = {};
+        VerifyCard_1.handArrayNode = this.stringToNode(handIn2DStringArray);
+        // verifyCard.handArrayNode = this.cleanHighlight(VerifyCard.handArrayNode);
+        // doesnt work because cleaning after concactenated will remove possible additional melds
     };
-    VerifyCard.handArray = [];
+    /*     cleanHighlight(handArrayNode: cc.Node[][]): cc.Node[][] {
+
+                handArrayNode.forEach((item,index) => {
+                    // cc.log("bugima",Hand.handCards.indexOf(item[0]));
+                    // cc.log("bugima2",Hand.handCards.indexOf(item[1]));
+                    if (Hand.handCards.indexOf(item[0]) !== Hand.handCards.indexOf(item[1])-1) {
+                        // cc.log("false",index);
+                        handArrayNode.splice(index,1);
+                    }
+                });
+
+                return handArrayNode;
+            } */
+    VerifyCard.prototype.stringToNode = function (handIn2DStringArray) {
+        var handBackTo2DNodeArray = [];
+        var nodeArray = [];
+        handIn2DStringArray.forEach(function (item, index) {
+            nodeArray = [];
+            item.forEach(function (item2) {
+                HandCardScript_1.default.handCards.forEach(function (f) {
+                    if (item2 === f.name) {
+                        nodeArray.push(f.getComponent(PrefabCardScript_1.default));
+                    }
+                });
+                handBackTo2DNodeArray[index] = nodeArray;
+            });
+        });
+        return handBackTo2DNodeArray;
+    };
+    VerifyCard.handArrayNode = [];
+    VerifyCard.handArrayName = [];
+    __decorate([
+        property(cc.Node)
+    ], VerifyCard.prototype, "canvasNode", void 0);
     VerifyCard = VerifyCard_1 = __decorate([
         ccclass
     ], VerifyCard);

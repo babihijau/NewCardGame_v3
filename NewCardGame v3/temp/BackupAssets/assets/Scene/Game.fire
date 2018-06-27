@@ -383,7 +383,7 @@
     "_cascadeOpacityEnabled": true,
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 0.5025724765110787,
       "y": 0.5
     },
     "_contentSize": {
@@ -1233,6 +1233,9 @@
     "node": {
       "__id__": 32
     },
-    "_enabled": true
+    "_enabled": true,
+    "canvasNode": {
+      "__id__": 2
+    }
   }
 ]

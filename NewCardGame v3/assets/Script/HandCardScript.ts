@@ -1,4 +1,6 @@
-const {ccclass, property} = cc._decorator;
+import CreateDeck from "./CreateDeckScript";
+
+const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class Hand extends cc.Component {
@@ -9,6 +11,6 @@ export default class Hand extends cc.Component {
     public static handCards: cc.Node[] = [];
 
     // tslint:disable-next-line:no-empty
-    onLoad ():void {
+    onLoad(): void {
     }
 }

@@ -70,7 +70,7 @@ var DragCard = /** @class */ (function (_super) {
                 DragCard_1.currentDiscardIndex = DiscardedCardScript_1.default.discardedCards.lastIndexOf(_this.node);
                 _this.previousCardIn = "Discarded";
             }
-            cc.log(_this.previousCardIn);
+            // cc.log(this.previousCardIn);
             if (!_this.propagate) {
                 event.stopPropagation();
             }
@@ -230,9 +230,9 @@ var DragCard = /** @class */ (function (_super) {
             DragCard_1.countRight = 0;
             DragCard_1.bufferX = 0;
             _this.onSortTable();
-            cc.log("Discarded \n", DiscardedCardScript_1.default.discardedCards);
-            cc.log("Hand \n", HandCardScript_1.default.handCards);
-            cc.log("Deck \n", DeckCardScript_1.default.deckCards);
+            // cc.log("Discarded \n", Discarded.discardedCards);
+            //  cc.log("Hand \n", Hand.handCards);
+            //  cc.log("Deck \n", Deck.deckCards);
         }, this);
     };
     DragCard.prototype.onDiscard = function () {

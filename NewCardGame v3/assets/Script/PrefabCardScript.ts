@@ -5,6 +5,8 @@ export default class PrefabCard extends cc.Component {
 
     @property(cc.SpriteFrame)
     spriteList: cc.SpriteFrame[] = [];
+    @property(cc.Sprite)
+    sprite: cc.Sprite = null;
 
     public static num: number[] = [];
     public static count: number = -1;
@@ -15,8 +17,9 @@ export default class PrefabCard extends cc.Component {
         }
 
         var id: number = this.genRandom();
-        var sprite: cc.Sprite = this.getComponent(cc.Sprite);
-        sprite.spriteFrame = this.spriteList[id];
+        // var sprite: cc.Sprite = this.getComponent(cc.Sprite);
+        // sprite.spriteFrame = this.spriteList[id];
+        this.sprite.spriteFrame = this.spriteList[id];
     }
 
     // should be randomly generated, ill get to that later.. eventually

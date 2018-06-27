@@ -23,6 +23,7 @@ var Deal = /** @class */ (function (_super) {
         Deal_1.spawnCount = 0;
     };
     Deal.prototype.onDealCard = function () {
+        var _this = this;
         this.schedule(this.onDealCard, this.spawnInterval);
         if (Deal_1.spawnCount >= this.cardsToDeal) {
             this.clearRepeater();
@@ -41,10 +42,19 @@ var Deal = /** @class */ (function (_super) {
             firstIndex = (78 / 2 - (cardsInHand * 78 / 2));
         }
         DragCardScript_1.default.currentHandSpacing = spacing;
-        for (var i = 0; i < cardsInHand; i++) {
+        var _loop_1 = function () {
+            var last = i === cardsInHand;
             HandCardScript_1.default.handCards[i].stopAllActions();
-            HandCardScript_1.default.handCards[i].runAction(cc.spawn(cc.rotateTo(0.1, 0), cc.moveTo(0.1, cc.p(firstIndex + (spacing * i), this.handLayout.y))));
+            HandCardScript_1.default.handCards[i].runAction(cc.spawn(cc.rotateTo(0.1, 0), cc.sequence([cc.moveTo(0.1, cc.p(firstIndex + (spacing * i), this_1.handLayout.y)), cc.callFunc(function () {
+                    if (last) {
+                        _this.DealButton.interactable = true;
+                    }
+                })])));
             HandCardScript_1.default.handCards[i].setLocalZOrder(i);
+        };
+        var this_1 = this;
+        for (var i = 0; i < cardsInHand; i++) {
+            _loop_1();
         }
         DeckCardScript_1.default.deckCards.pop();
         Deal_1.spawnCount++;
@@ -55,9 +65,6 @@ var Deal = /** @class */ (function (_super) {
         else {
             this.CreateButton.interactable = true;
         }
-    };
-    Deal.prototype.update = function () {
-        this.DealButton.interactable = Deal_1.interactableButton;
     };
     Deal.prototype.clearRepeater = function () {
         this.unschedule(this.onDealCard);
